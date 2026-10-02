@@ -1,10 +1,11 @@
 class Solution:
     def isPalindrome(self, s: str) -> bool:
+        text = "".join(filter(str.isalnum, s)).lower()
+        r = len(text) - 1
 
-        s1 = s.lower().replace(" ","")
-        s2 = ''
-        for char in s1:
-            if char.isalnum():
-                s2 += char
-
-        return s2 == s2[::-1]
+        for l in text:
+            if l == text[r]:
+                r -= 1
+            else:
+                return False
+        return True
